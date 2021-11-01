@@ -1,38 +1,36 @@
 package HW6;
 
-public class Animal implements Interface {
-    private double animalDistanceRun, animalDistanceJump, animalDistanceSwim;
+public abstract class Animal {
+    private static int animalCount = 0;
+    private String name;
+    private int maxRunLength;
+    private int maxSwimLength;
 
-    Animal(double animalDistanceRun, double animalDistanceJump, double animalDistanceSwim) {
-        this.animalDistanceRun = animalDistanceRun;
-        this.animalDistanceJump = animalDistanceJump;
-        this.animalDistanceSwim = animalDistanceSwim;
+    public Animal(String name, int maxRunLength, int maxSwimLength) {
+        animalCount++;
+        this.name = name;
+        this.maxRunLength = maxRunLength;
+        this.maxSwimLength = maxSwimLength;
     }
-
-    @Override
-    public boolean run(double value) {
-        return animalDistanceRun > value;
+    public void run(int runLength) {
+        if (runLength <= maxRunLength) {
+            System.out.println(name + " пробежал " + runLength + " метров.");
+        } else {
+            System.out.println(name + " пробежал только " + maxRunLength + " метров и больше не может.");
+        }
     }
-
-    @Override
-    public boolean jump(double value) {
-        return animalDistanceJump > value;
+    public void swim(int swimLength) {
+        if (this instanceof Cat) {
+            System.out.println("Коты не плавают !");
+        } else {
+            if (swimLength <= maxSwimLength) {
+                System.out.println(name + " проплыл " + swimLength + " метров.");
+            } else {
+                System.out.println(name + " проплыл только " + maxSwimLength + " метров и больше не может.");
+            }
+        }
     }
-
-    @Override
-    public boolean swim(double value) {
-        return animalDistanceSwim > value;
-    }
-
-    double getAnimalDistanceRun() {
-        return animalDistanceRun;
-    }
-
-    double getAnimalDistanceJump() {
-        return animalDistanceJump;
-    }
-
-    double getAnimalDistanceSwim() {
-        return animalDistanceSwim;
+    public static int getAnimalCount(){
+        return animalCount;
     }
 }

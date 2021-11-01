@@ -1,8 +1,14 @@
 package HW6;
 
-class Dog extends Animal {
-
-    Dog(double animalDistanceRun, double animalDistanceJump, double animalDistanceSwim) {
-        super(animalDistanceRun, animalDistanceJump, animalDistanceSwim);
+public class Dog extends Animal {
+    private static final int MAXRUNLENGTH = 500;
+    private static final int MAXSWIMLENGTH = 10;
+    private static int dogCount = 0;
+    public Dog(String name) {
+        super(name, MAXRUNLENGTH, MAXSWIMLENGTH);
+        dogCount++;
+    }
+    public static int getDogCount(){
+        return dogCount;
     }
 }
