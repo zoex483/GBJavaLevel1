@@ -39,13 +39,13 @@ public class Main {
             if (allCats[i].fullness == false && allCats[i].appetite < plate.food){
                 allCats[i].eat(plate);
                 allCats[i].fullness = true;
-                System.out.println("Котёнок по имени " + allCats[i].name + " покушал!");
+                System.out.println("Котёнок по имени " + allCats[i].name + " покушал !");
             } else {
-                System.out.println("Котёнок по имени " + allCats[i].name + " не поел!");
+                System.out.println("Котёнок по имени " + allCats[i].name + " не поел !");
             }
         }
         plate.info();
-        System.out.println("Сколько грамм корма добавить в тарелку?");
+        System.out.println("Сколько грамм корма добавить в тарелку ?");
         action = sc.nextInt();
         plate.increaseFood(action);
         plate.info();
